@@ -1,109 +1,119 @@
 #ifndef __CFL_PREFS_H__
 
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__)
+    #if defined(__clang__)
+        #define CFLTK_EXPORT __declspec(dllexport) __attribute__ ((visibility("default")))
+    #else
+        #define CFLTK_EXPORT __declspec(dllexport)
+    #endif
+#else
+    #define CFLTK_EXPORT extern __attribute__ ((visibility("default")))
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 typedef struct Fl_Preferences Fl_Preferences;
 
-void Fl_Preferences_set_file_access(unsigned int flags);
+CFLTK_EXPORT void Fl_Preferences_set_file_access(unsigned int flags);
 
-unsigned int Fl_Preferences_file_access(void);
+CFLTK_EXPORT unsigned int Fl_Preferences_file_access(void);
 
-char Fl_Preferences_remove(void *id_);
+CFLTK_EXPORT char Fl_Preferences_remove(void *id_);
 
-Fl_Preferences *
+CFLTK_EXPORT Fl_Preferences *
 Fl_Preferences_new(int root, const char *vendor, const char *application);
 
-Fl_Preferences *Fl_Preferences_from_path(
+CFLTK_EXPORT Fl_Preferences *Fl_Preferences_from_path(
     const char *path, const char *vendor, const char *application
 );
 
-Fl_Preferences *
+CFLTK_EXPORT Fl_Preferences *
 Fl_Preferences_from_parent_group(Fl_Preferences *parent, const char *group);
 
-Fl_Preferences *
+CFLTK_EXPORT Fl_Preferences *
 Fl_Preferences_from_parent_idx(Fl_Preferences *parent, int groupIndex);
 
-Fl_Preferences *Fl_Preferences_copy(const Fl_Preferences *);
+CFLTK_EXPORT Fl_Preferences *Fl_Preferences_copy(const Fl_Preferences *);
 
-void Fl_Preferences_delete(Fl_Preferences *);
+CFLTK_EXPORT void Fl_Preferences_delete(Fl_Preferences *);
 
-Fl_Preferences *Fl_Preferences_from_id(void *id);
+CFLTK_EXPORT Fl_Preferences *Fl_Preferences_from_id(void *id);
 
-int Fl_Preferences_filename(
+CFLTK_EXPORT int Fl_Preferences_filename(
     Fl_Preferences *prefs, char *buffer, unsigned long buffer_size
 );
 
-char Fl_Preferences_get_userdata_path(
+CFLTK_EXPORT char Fl_Preferences_get_userdata_path(
     Fl_Preferences *prefs, char *path, int pathlen
 );
 
-void *Fl_Preferences_id(Fl_Preferences *prefs);
+CFLTK_EXPORT void *Fl_Preferences_id(Fl_Preferences *prefs);
 
-const char *Fl_Preferences_name(Fl_Preferences *prefs);
+CFLTK_EXPORT const char *Fl_Preferences_name(Fl_Preferences *prefs);
 
-const char *Fl_Preferences_path(Fl_Preferences *prefs);
+CFLTK_EXPORT const char *Fl_Preferences_path(Fl_Preferences *prefs);
 
-int Fl_Preferences_groups(Fl_Preferences *prefs);
+CFLTK_EXPORT int Fl_Preferences_groups(Fl_Preferences *prefs);
 
-const char *Fl_Preferences_group(Fl_Preferences *prefs, int num_group);
+CFLTK_EXPORT const char *Fl_Preferences_group(Fl_Preferences *prefs, int num_group);
 
-char Fl_Preferences_group_exists(Fl_Preferences *prefs, const char *key);
+CFLTK_EXPORT char Fl_Preferences_group_exists(Fl_Preferences *prefs, const char *key);
 
-char Fl_Preferences_delete_group(Fl_Preferences *prefs, const char *group);
+CFLTK_EXPORT char Fl_Preferences_delete_group(Fl_Preferences *prefs, const char *group);
 
-char Fl_Preferences_delete_all_groups(Fl_Preferences *prefs);
+CFLTK_EXPORT char Fl_Preferences_delete_all_groups(Fl_Preferences *prefs);
 
-int Fl_Preferences_entries(Fl_Preferences *prefs);
+CFLTK_EXPORT int Fl_Preferences_entries(Fl_Preferences *prefs);
 
-const char *Fl_Preferences_entry(Fl_Preferences *prefs, int index);
+CFLTK_EXPORT const char *Fl_Preferences_entry(Fl_Preferences *prefs, int index);
 
-char Fl_Preferences_entry_exists(Fl_Preferences *prefs, const char *key);
+CFLTK_EXPORT char Fl_Preferences_entry_exists(Fl_Preferences *prefs, const char *key);
 
-char Fl_Preferences_delete_entry(Fl_Preferences *prefs, const char *entry);
+CFLTK_EXPORT char Fl_Preferences_delete_entry(Fl_Preferences *prefs, const char *entry);
 
-char Fl_Preferences_delete_all_entries(Fl_Preferences *prefs);
+CFLTK_EXPORT char Fl_Preferences_delete_all_entries(Fl_Preferences *prefs);
 
-char Fl_Preferences_clear(Fl_Preferences *prefs);
+CFLTK_EXPORT char Fl_Preferences_clear(Fl_Preferences *prefs);
 
-char Fl_Preferences_seti(Fl_Preferences *prefs, const char *entry, int value);
+CFLTK_EXPORT char Fl_Preferences_seti(Fl_Preferences *prefs, const char *entry, int value);
 
-char Fl_Preferences_setf(Fl_Preferences *prefs, const char *entry, float value);
+CFLTK_EXPORT char Fl_Preferences_setf(Fl_Preferences *prefs, const char *entry, float value);
 
-char Fl_Preferences_setfp(
+CFLTK_EXPORT char Fl_Preferences_setfp(
     Fl_Preferences *prefs, const char *entry, float value, int precision
 );
 
-char Fl_Preferences_setd(
+CFLTK_EXPORT char Fl_Preferences_setd(
     Fl_Preferences *prefs, const char *entry, double value
 );
 
-char Fl_Preferences_setdp(
+CFLTK_EXPORT char Fl_Preferences_setdp(
     Fl_Preferences *prefs, const char *entry, double value, int precision
 );
 
-char Fl_Preferences_sets(
+CFLTK_EXPORT char Fl_Preferences_sets(
     Fl_Preferences *prefs, const char *entry, const char *value
 );
 
-char Fl_Preferences_setv(
+CFLTK_EXPORT char Fl_Preferences_setv(
     Fl_Preferences *prefs, const char *entry, const void *value, int size
 );
 
-char Fl_Preferences_geti(
+CFLTK_EXPORT char Fl_Preferences_geti(
     Fl_Preferences *prefs, const char *entry, int *value, int defaultValue
 );
 
-char Fl_Preferences_getf(
+CFLTK_EXPORT char Fl_Preferences_getf(
     Fl_Preferences *prefs, const char *entry, float *value, float defaultValue
 );
 
-char Fl_Preferences_getd(
+CFLTK_EXPORT char Fl_Preferences_getd(
     Fl_Preferences *prefs, const char *entry, double *value, double defaultValue
 );
 
-char Fl_Preferences_gets(
+CFLTK_EXPORT char Fl_Preferences_gets(
     Fl_Preferences *prefs,
     const char *entry,
     char *value,
@@ -111,7 +121,7 @@ char Fl_Preferences_gets(
     int maxSize
 );
 
-char Fl_Preferences_getv(
+CFLTK_EXPORT char Fl_Preferences_getv(
     Fl_Preferences *prefs,
     const char *entry,
     void *value,
@@ -120,7 +130,7 @@ char Fl_Preferences_getv(
     int maxSize
 );
 
-char Fl_Preferences_getv2(
+CFLTK_EXPORT char Fl_Preferences_getv2(
     Fl_Preferences *prefs,
     const char *entry,
     void *value,
@@ -129,7 +139,7 @@ char Fl_Preferences_getv2(
     int *size
 );
 
-int Fl_Preferences_size(Fl_Preferences *prefs, const char *entry);
+CFLTK_EXPORT int Fl_Preferences_size(Fl_Preferences *prefs, const char *entry);
 
 #ifdef __cplusplus
 }
