@@ -121,13 +121,13 @@ CFLTK_EXPORT void Fl_Tooltip_enable(int b);
 
 CFLTK_EXPORT void Fl_Tooltip_disable(void);
 
-CFLTK_EXPORT // void (*Fl_Tooltip_enter)(Fl_Widget *w);
+// void (*Fl_Tooltip_enter)(Fl_Widget *w);
 
 CFLTK_EXPORT void Fl_Tooltip_enter_area(
     Fl_Widget *w, int X, int Y, int W, int H, const char *tip
 );
 
-CFLTK_EXPORT // void (*Fl_Tooltip_exit)(Fl_Widget *w);
+// void (*Fl_Tooltip_exit)(Fl_Widget *w);
 
 CFLTK_EXPORT void *Fl_Tooltip_current_widget(void);
 
