@@ -42,7 +42,7 @@ CFLTK_EXPORT void Fl_Preferences_delete(Fl_Preferences *);
 CFLTK_EXPORT Fl_Preferences *Fl_Preferences_from_id(void *id);
 
 CFLTK_EXPORT int Fl_Preferences_filename(
-    Fl_Preferences *prefs, char *buffer, unsigned long buffer_size
+    Fl_Preferences *prefs, char *buffer, unsigned long long buffer_size
 );
 
 CFLTK_EXPORT char Fl_Preferences_get_userdata_path(

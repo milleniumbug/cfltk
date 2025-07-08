@@ -153,7 +153,7 @@ Fl_BMP_Image *Fl_BMP_Image_new(const char *filename) {
     return ret;
 }
 
-Fl_BMP_Image *Fl_BMP_Image_from(const unsigned char *data, long len) {
+Fl_BMP_Image *Fl_BMP_Image_from(const unsigned char *data, long long len) {
     LOCK(auto ret = new Fl_BMP_Image(nullptr, data, len));
     return ret;
 }
@@ -165,7 +165,7 @@ Fl_GIF_Image *Fl_GIF_Image_new(const char *filename) {
     return ret;
 }
 
-Fl_GIF_Image *Fl_GIF_Image_from(const unsigned char *data, unsigned long len) {
+Fl_GIF_Image *Fl_GIF_Image_from(const unsigned char *data, unsigned long long len) {
     LOCK(auto ret = new Fl_GIF_Image(nullptr, data, len));
     return ret;
 }
@@ -184,7 +184,7 @@ Fl_Anim_GIF_Image *Fl_Anim_GIF_Image_new(
 Fl_Anim_GIF_Image *Fl_Anim_GIF_Image_from(
     const char *imagename,
     const unsigned char *data,
-    const unsigned long length,
+    const unsigned long long length,
     void *canvas,
     unsigned short flags
 ) {
@@ -342,13 +342,13 @@ Fl_ICO_Image *Fl_ICO_Image_new(const char *filename, int id) {
 }
 
 Fl_ICO_Image *
-Fl_ICO_Image_from_data(const unsigned char *bits, unsigned long len, int id) {
+Fl_ICO_Image_from_data(const unsigned char *bits, unsigned long long len, int id) {
     LOCK(auto ret = new Fl_ICO_Image(nullptr, id, bits, len));
     return ret;
 }
 
 void *const
-Fl_ICO_Image_icondirentry(const Fl_ICO_Image *self, unsigned long *size) {
+Fl_ICO_Image_icondirentry(const Fl_ICO_Image *self, unsigned long long *size) {
     LOCK(auto ret = self->icondirentry(); *size = self->idcount(););
     auto temp = new Fl_ICO_Image::IconDirEntry[*size];
     memcpy(temp, ret, *size);

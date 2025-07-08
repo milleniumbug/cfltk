@@ -73,13 +73,13 @@ IMAGE_DECLARE(Fl_BMP_Image)
 
 CFLTK_EXPORT Fl_BMP_Image *Fl_BMP_Image_new(const char *filename);
 
-CFLTK_EXPORT Fl_BMP_Image *Fl_BMP_Image_from(const unsigned char *data, long len);
+CFLTK_EXPORT Fl_BMP_Image *Fl_BMP_Image_from(const unsigned char *data, long long len);
 
 IMAGE_DECLARE(Fl_GIF_Image)
 
 CFLTK_EXPORT Fl_GIF_Image *Fl_GIF_Image_new(const char *filename);
 
-CFLTK_EXPORT Fl_GIF_Image *Fl_GIF_Image_from(const unsigned char *data, unsigned long len);
+CFLTK_EXPORT Fl_GIF_Image *Fl_GIF_Image_from(const unsigned char *data, unsigned long long len);
 
 IMAGE_DECLARE(Fl_Anim_GIF_Image)
 
@@ -89,7 +89,7 @@ Fl_Anim_GIF_Image_new(const char *filename, void *canvas, unsigned short flags);
 CFLTK_EXPORT Fl_Anim_GIF_Image *Fl_Anim_GIF_Image_from(
     const char *imagename,
     const unsigned char *data,
-    const unsigned long length,
+    const unsigned long long length,
     void *canvas,
     unsigned short flags
 );
@@ -156,10 +156,10 @@ IMAGE_DECLARE(Fl_ICO_Image)
 CFLTK_EXPORT Fl_ICO_Image *Fl_ICO_Image_new(const char *filename, int id);
 
 CFLTK_EXPORT Fl_ICO_Image *
-Fl_ICO_Image_from_data(const unsigned char *bits, unsigned long len, int id);
+Fl_ICO_Image_from_data(const unsigned char *bits, unsigned long long len, int id);
 
 CFLTK_EXPORT void *const
-Fl_ICO_Image_icondirentry(const Fl_ICO_Image *self, unsigned long *size);
+Fl_ICO_Image_icondirentry(const Fl_ICO_Image *self, unsigned long long *size);
 
 CFLTK_EXPORT void Fl_register_images(void);
 

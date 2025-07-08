@@ -48,7 +48,7 @@ Fl_Preferences *Fl_Preferences_from_id(void *id) {
 }
 
 int Fl_Preferences_filename(
-    Fl_Preferences *prefs, char *buffer, unsigned long buffer_size
+    Fl_Preferences *prefs, char *buffer, unsigned long long buffer_size
 ) {
     return prefs->filename(buffer, buffer_size);
 }
